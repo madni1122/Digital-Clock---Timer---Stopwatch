@@ -12,6 +12,7 @@ import getCurrentTime from "./composables/getDataObject";
 function App() {
   const [section, setSection] = useState("Clock");
   const { toggleFormat, clockTime } = useClockTime(getCurrentTime);
+
   return (
     <>
       <Header section={section} setSection={setSection} />
