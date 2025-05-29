@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import TimeCard from "./TimeCard";
 import colon from "../assets/colon.svg";
-import resume from "../assets/resume.svg";
-import pause from "../assets/pause.svg";
-import reset from "../assets/reset.svg";
 import setInputValue from "../composables/setInputValue";
 import { toast } from "react-toastify";
+import StartBtn from "./StartBtn";
+import ResetBtn from "./ResetBtn";
 
 const Timer = () => {
   const [timerStatus, setTimerStatus] = useState(false);
@@ -64,6 +63,10 @@ const Timer = () => {
       return;
     }
     setTimerStatus((prevVal) => !prevVal);
+  };
+
+  const handleReset = () => {
+    setTimer({ hr: "", min: "", sec: "" });
   };
 
   const handleChange = (type, e) => {
@@ -143,31 +146,9 @@ const Timer = () => {
         />
       </div>
       <div className="flex justify-center items-center relative top-24">
-        {!timerStatus && (
-          <button
-            onClick={() => {
-              setTimer({ hr: "", min: "", sec: "" });
-            }}
-            className="absolute left-[30%] hover:cursor-pointer"
-          >
-            <img
-              src={reset}
-              alt="reset icon"
-              className="h-14 w-14 filter transition duration-300 ease-in-out hover:[filter:drop-shadow(4px_4px_14px_#32CD32)] "
-            />
-          </button>
-        )}
+        {!timerStatus && <ResetBtn handleReset={handleReset} />}
 
-        <button
-          onClick={handleTimerStatus}
-          className="h-24 w-24 flex justify-center items-center rounded-full bg-green-200 transition duration-200 hover:bg-green-300 hover:text-green-950 shadow-[0_0_16px_#32CD32]"
-        >
-          <img
-            src={timerStatus ? pause : resume}
-            className="h-[60%] w-[60%] transition duration-200"
-            alt="start icon"
-          />
-        </button>
+        <StartBtn handleClick={handleTimerStatus} status={timerStatus} />
       </div>
     </>
   );

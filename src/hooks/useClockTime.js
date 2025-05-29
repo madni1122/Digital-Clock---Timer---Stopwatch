@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import getCurrentTime from "../composables/getDataObject";
 
-const useClockTime = () => {
-  let { hours, minutes, secs } = getCurrentTime();
+const useClockTime = (getTime = () => null) => {
+  let stopWatchTime = { hours: 0, minutes: 0, secs: 0 };
+  let { hours, minutes, secs } = getTime() || stopWatchTime;
   const [clockTime, setClockTime] = useState({
     hr: hours,
     min: minutes,
@@ -35,7 +35,7 @@ const useClockTime = () => {
   }, []);
 
   const toggleFormat = () => {
-    let { hours: hour } = getCurrentTime();
+    let { hours: hour } = getTime();
     if (clockTime.ampm) {
       if (hour > 12) {
         setClockTime((prevVal) => ({

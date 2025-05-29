@@ -6,10 +6,12 @@ import useClockTime from "./hooks/useClockTime";
 import Timer from "./components/Timer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StopWatch from "./components/StopWatch";
+import getCurrentTime from "./composables/getDataObject";
 
 function App() {
   const [section, setSection] = useState("Clock");
-  const { toggleFormat, clockTime } = useClockTime();
+  const { toggleFormat, clockTime } = useClockTime(getCurrentTime);
   return (
     <>
       <Header section={section} setSection={setSection} />
@@ -20,7 +22,7 @@ function App() {
         ) : section === "Timer" ? (
           <Timer />
         ) : (
-          <h1>Stop Watch</h1>
+          <StopWatch />
         )}
       </section>
       <ToastContainer />

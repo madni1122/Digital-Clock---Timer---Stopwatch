@@ -18,7 +18,7 @@ const Clock = ({ clockTime, toggleFormat }) => {
         <TimeCard>{addZero(clockTime.hr)}</TimeCard>
         <img src={colon} alt="colon icon" className="w-32 h-32" />
         <TimeCard>{addZero(clockTime.min)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-32 h-32" />{" "}
+        <img src={colon} alt="colon icon" className="w-32 h-32" />
         <TimeCard>{addZero(clockTime.sec)}</TimeCard>
         <p className=" text-6xl ml-12">{clockTime.ampm}</p>
       </div>
