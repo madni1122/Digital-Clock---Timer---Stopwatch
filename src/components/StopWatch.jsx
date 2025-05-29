@@ -6,21 +6,26 @@ import ResetBtn from "./ResetBtn";
 import StartBtn from "./StartBtn";
 import useClockTime from "../hooks/useClockTime";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const StopWatch = () => {
   const [watchStatus, setWatchStatus] = useState(false);
 
-  const { clockTime, setWatchTime } = useClockTime(undefined, watchStatus);
+  const { clockTime, resetWatchTime } = useClockTime(undefined, watchStatus);
 
   useEffect(() => {
-    if (watchStatus) {
-      toast.success("Don't switch to another tab");
-    }
-  }, [watchStatus]);
+    Swal.fire({
+      icon: "info",
+      title: "Important!",
+      text: "Switching to another tab will reset the stopwatch.",
+      confirmButtonText: "Got it!",
+      allowOutsideClick: false,
+    });
+  }, []);
 
   //   const startWatch = () => {};
   const resetWatch = () => {
-    setWatchTime({ hours: 0, minutes: 0, secs: 0 });
+    resetWatchTime();
   };
   const handleClick = () => {
     let updatedStatus = !watchStatus;

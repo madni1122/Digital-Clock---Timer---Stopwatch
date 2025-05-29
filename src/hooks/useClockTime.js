@@ -37,6 +37,14 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
     }
   }, [watchStatus]);
 
+  const resetWatchTime = () => {
+    setClockTime({
+      hr: hours,
+      min: minutes,
+      sec: secs,
+    });
+  };
+
   const toggleFormat = () => {
     let { hours: hour } = getTime();
     if (clockTime.ampm) {
@@ -72,6 +80,6 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
     }
     setClockTime((prevVal) => ({ ...prevVal, hr: newHr, ampm: ampm }));
   };
-  return { toggleFormat, clockTime, setWatchTime };
+  return { toggleFormat, clockTime, resetWatchTime };
 };
 export default useClockTime;
