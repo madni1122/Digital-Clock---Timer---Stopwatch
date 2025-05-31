@@ -9,7 +9,7 @@ const ResetBtn = ({ handleReset }) => {
       <img
         src={reset}
         alt="reset icon"
-        className="h-14 w-14 filter transition duration-300 ease-in-out hover:[filter:drop-shadow(4px_4px_14px_#32CD32)] "
+        className="h-[30px] w-[30px] filter transition duration-300 ease-in-out hover:[filter:drop-shadow(4px_4px_14px_#32CD32)] "
       />
     </button>
   );

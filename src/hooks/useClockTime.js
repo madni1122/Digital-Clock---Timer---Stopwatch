@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-const useClockTime = (getTime = () => null, watchStatus = null) => {
-  const [watchTime, setWatchTime] = useState({ hours: 0, minutes: 0, secs: 0 });
+const useClockTime = (getTime = () => null, startTime = true) => {
+  const watchTime = { hours: 0, minutes: 0, secs: 0 };
   let { hours, minutes, secs } = getTime() || watchTime;
   const [clockTime, setClockTime] = useState({
     hr: hours,
@@ -9,10 +9,12 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
     sec: secs,
     ampm: null,
   });
+  const [is24Hour, setIs24Hour] = useState(false);
+
   const timeRef = useRef(null);
 
   useEffect(() => {
-    if (watchStatus === true || watchStatus === null) {
+    if (startTime === true) {
       timeRef.current = setInterval(() => {
         setClockTime((prevVal) => {
           let newSec = prevVal.sec + 1;
@@ -35,7 +37,7 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
         timeRef.current = null;
       };
     }
-  }, [watchStatus]);
+  }, [startTime]);
 
   const resetWatchTime = () => {
     setClockTime({
@@ -46,6 +48,8 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
   };
 
   const toggleFormat = () => {
+    setIs24Hour((prev) => !prev);
+
     let { hours: hour } = getTime();
     if (clockTime.ampm) {
       if (hour > 12) {
@@ -70,16 +74,13 @@ const useClockTime = (getTime = () => null, watchStatus = null) => {
       ampm = "AM";
       newHr = hour;
     }
-    if ((hour = 12)) {
-      newHr = hour;
-      ampm = "PM";
-    }
+
     if (hour > 12) {
       newHr = hour - 12;
       ampm = "PM";
     }
     setClockTime((prevVal) => ({ ...prevVal, hr: newHr, ampm: ampm }));
   };
-  return { toggleFormat, clockTime, resetWatchTime };
+  return { toggleFormat, clockTime, resetWatchTime, is24Hour };
 };
 export default useClockTime;

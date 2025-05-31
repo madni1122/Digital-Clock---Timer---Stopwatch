@@ -11,7 +11,7 @@ import getCurrentTime from "./composables/getDataObject";
 
 function App() {
   const [section, setSection] = useState("Clock");
-  const { toggleFormat, clockTime } = useClockTime(getCurrentTime);
+  const { toggleFormat, clockTime, is24Hour } = useClockTime(getCurrentTime);
 
   return (
     <>
@@ -19,7 +19,11 @@ function App() {
 
       <section className="min-w-[100vw] min-h-[100vh] flex flex-col justify-center bg-gray-100">
         {section === "Clock" ? (
-          <Clock clockTime={clockTime} toggleFormat={toggleFormat} />
+          <Clock
+            clockTime={clockTime}
+            toggleFormat={toggleFormat}
+            is24Hour={is24Hour}
+          />
         ) : section === "Timer" ? (
           <Timer />
         ) : (

@@ -5,25 +5,18 @@ import { useEffect, useState } from "react";
 import ResetBtn from "./ResetBtn";
 import StartBtn from "./StartBtn";
 import useClockTime from "../hooks/useClockTime";
-import { toast } from "react-toastify";
-import Swal from "sweetalert2";
+import infoAlert from "../composables/swalAlert";
 
 const StopWatch = () => {
   const [watchStatus, setWatchStatus] = useState(false);
 
   const { clockTime, resetWatchTime } = useClockTime(undefined, watchStatus);
+  console.log("stopWatch");
 
   useEffect(() => {
-    Swal.fire({
-      icon: "info",
-      title: "Important!",
-      text: "Switching to another tab will reset the stopwatch.",
-      confirmButtonText: "Got it!",
-      allowOutsideClick: false,
-    });
+    infoAlert("Switching to another tab will reset the stopwatch.");
   }, []);
 
-  //   const startWatch = () => {};
   const resetWatch = () => {
     resetWatchTime();
   };
@@ -36,9 +29,9 @@ const StopWatch = () => {
     <>
       <div className="w-full h-full flex px-28 justify-center items-center">
         <TimeCard>{addZero(clockTime.hr)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-32 h-32" />
+        <img src={colon} alt="colon icon" className="w-24 h-24" />
         <TimeCard>{addZero(clockTime.min)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-32 h-32" />
+        <img src={colon} alt="colon icon" className="w-24 h-24" />
         <TimeCard>{addZero(clockTime.sec)}</TimeCard>
       </div>
       <div className="flex justify-center items-center relative top-24">
