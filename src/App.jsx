@@ -7,11 +7,14 @@ import Timer from "./components/Timer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StopWatch from "./components/StopWatch";
-import getCurrentTime from "./composables/getDataObject";
+import getCurrentTime from "./composables/getDateObject";
 
 function App() {
   const [section, setSection] = useState("Clock");
-  const { toggleFormat, clockTime, is24Hour } = useClockTime(getCurrentTime);
+  const { toggleFormat, clockTime, is24Hour } = useClockTime(
+    getCurrentTime,
+    true
+  );
 
   return (
     <>

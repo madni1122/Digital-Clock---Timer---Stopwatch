@@ -11,7 +11,6 @@ const StopWatch = () => {
   const [watchStatus, setWatchStatus] = useState(false);
 
   const { clockTime, resetWatchTime } = useClockTime(undefined, watchStatus);
-  console.log("stopWatch");
 
   useEffect(() => {
     infoAlert("Switching to another tab will reset the stopwatch.");

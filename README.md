@@ -1,12 +1,45 @@
-# React + Vite
+# ⏰ React Clock App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Clock App built with **React.js** that includes the following features:
 
-Currently, two official plugins are available:
+- 🕒 **Live Digital Clock**
+- ⏳ **Timer** with customizable time and validations
+- ⏱️ **Stopwatch** with second precision
+- ⚡ Intuitive UI with start/pause/reset actions
+- ✅ Input validation & smart user feedback (via `react-toastify` and `SweetAlert2`)
+- 💡 Dark Mode ready design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🕒 Digital Clock
+
+- Displays real-time hours, minutes, and seconds
+- Auto-updates every second
+- Clean and minimal layout
+
+### ⏳ Timer
+
+- Set custom hours, minutes, and seconds (e.g. 00:30:00)
+- Smart input validation (`00-12` for hours, `00-59` for minutes/seconds)
+- Start/Pause and Reset controls
+- Visual error feedback and timer completion alert
+
+### ⏱️ Stopwatch
+
+- Start, Pause, and Reset functionality
+- second accuracy
+- Real-time counter updates
+
+---
+
+## 📸 Screenshots
+
+> Include your screenshots here after deployment!
+
+```bash
+/public/screenshots/clock.png
+/public/screenshots/timer.png
+/public/screenshots/stopwatch.png
+```

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const useClockTime = (getTime = () => null, startTime = true) => {
+const useClockTime = (getTime = () => null, startTime = false) => {
   const watchTime = { hours: 0, minutes: 0, secs: 0 };
   let { hours, minutes, secs } = getTime() || watchTime;
   const [clockTime, setClockTime] = useState({
@@ -14,29 +14,28 @@ const useClockTime = (getTime = () => null, startTime = true) => {
   const timeRef = useRef(null);
 
   useEffect(() => {
-    if (startTime === true) {
-      timeRef.current = setInterval(() => {
-        setClockTime((prevVal) => {
-          let newSec = prevVal.sec + 1;
-          let newMin = prevVal.min;
-          let newHr = prevVal.hr;
-          if (newSec >= 60) {
-            newSec = 0;
-            newMin += 1;
-          }
-          if (newMin >= 60) {
-            newHr += 1;
-            newMin = 0;
-          }
-          if (newHr >= 24) newHr = 0;
-          return { hr: newHr, min: newMin, sec: newSec, ampm: prevVal.ampm };
-        });
-      }, 1000);
-      return () => {
-        clearInterval(timeRef.current);
-        timeRef.current = null;
-      };
-    }
+    if (!startTime) return;
+    timeRef.current = setInterval(() => {
+      setClockTime((prevVal) => {
+        let newSec = prevVal.sec + 1;
+        let newMin = prevVal.min;
+        let newHr = prevVal.hr;
+        if (newSec >= 60) {
+          newSec = 0;
+          newMin += 1;
+        }
+        if (newMin >= 60) {
+          newHr += 1;
+          newMin = 0;
+        }
+        if (newHr >= 24) newHr = 0;
+        return { hr: newHr, min: newMin, sec: newSec, ampm: prevVal.ampm };
+      });
+    }, 1000);
+    return () => {
+      clearInterval(timeRef.current);
+      timeRef.current = null;
+    };
   }, [startTime]);
 
   const resetWatchTime = () => {
