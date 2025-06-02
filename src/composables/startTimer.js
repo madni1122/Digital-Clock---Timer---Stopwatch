@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import addZero from "./addZero";
 
 const startTimer = (timeRef, setTimer, stopTimer) => {
@@ -7,12 +6,7 @@ const startTimer = (timeRef, setTimer, stopTimer) => {
       let newSec = prevVal.sec - 1;
       let newMin = prevVal.min;
       let newHr = prevVal.hr;
-      if (prevVal.sec == "00" && newMin == "00" && newHr == "00") {
-        stopTimer();
-        toast.success("Timer has finished!");
 
-        return { hr: "00", min: "00", sec: "00" };
-      }
       if (newSec < 0) {
         newSec = 59;
         newMin -= 1;

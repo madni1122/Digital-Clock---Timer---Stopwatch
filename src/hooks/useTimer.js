@@ -18,11 +18,23 @@ const useTimer = () => {
 
   useEffect(() => {
     if (timerStatus) {
-      startTimer(timeRef, setTimer, stopTimer);
+      startTimer(timeRef, setTimer);
     } else {
       stopTimer();
     }
   }, [timerStatus]);
+
+  useEffect(() => {
+    if (
+      timerStatus &&
+      timer.hr === "00" &&
+      timer.min === "00" &&
+      timer.sec === "00"
+    ) {
+      stopTimer();
+      toast.success("Timer has finished!");
+    }
+  }, [timer, timerStatus]);
 
   useEffect(() => {
     infoAlert("Switching to another tab will reset the timer.");
