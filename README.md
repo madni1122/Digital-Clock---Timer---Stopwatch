@@ -7,7 +7,13 @@ A modern and responsive Clock App built with **React.js** that includes the foll
 - ⏱️ **Stopwatch** with second precision
 - ⚡ Intuitive UI with start/pause/reset actions
 - ✅ Input validation & smart user feedback (via `react-toastify` and `SweetAlert2`)
-- 💡 Dark Mode ready design
+- 💡 This project includes a custom-built Dark/Light Mode toggle, allowing users to switch between themes for a better visual experience based on personal preference or environment.
+
+🌓 Toggle between dark and light themes using a context-based system.
+
+💾 Persistent preference saved to localStorage.
+
+⚙️ Built with React Context API for clean state management.
 
 ---
 
@@ -36,10 +42,4 @@ A modern and responsive Clock App built with **React.js** that includes the foll
 
 ## 📸 Screenshots
 
-> Include your screenshots here after deployment!
-
-```bash
-/public/screenshots/clock.png
-/public/screenshots/timer.png
-/public/screenshots/stopwatch.png
-```
+> ![Clock Image](clock.png) > ![Clock Dark Mode with 24 hour format](darkModeClock.png) > ![Custom Timer with sweet alert](timer.png) > ![StopWatch in dark mode](darkStopWatch.png) > ![StopWatch in light mode](lightStopWatch.png)

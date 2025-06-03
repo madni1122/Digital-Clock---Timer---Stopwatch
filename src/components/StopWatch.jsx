@@ -1,19 +1,22 @@
 import TimeCard from "./TimeCard";
 import addZero from "../composables/addZero";
 import colon from "../assets/colon.svg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ResetBtn from "./ResetBtn";
 import StartBtn from "./StartBtn";
 import useClockTime from "../hooks/useClockTime";
 import infoAlert from "../composables/swalAlert";
+import Colon from "./Colon";
+import { themeContext } from "../contexts/ThemeContext";
 
 const StopWatch = () => {
   const [watchStatus, setWatchStatus] = useState(false);
+  const [isDark] = useContext(themeContext);
 
   const { clockTime, resetWatchTime } = useClockTime(undefined, watchStatus);
 
   useEffect(() => {
-    infoAlert("Switching to another tab will reset the stopwatch.");
+    infoAlert("Switching to another tab will reset the stopwatch.", isDark);
   }, []);
 
   const resetWatch = () => {
@@ -28,9 +31,9 @@ const StopWatch = () => {
     <>
       <div className="w-full h-full flex px-28 justify-center items-center">
         <TimeCard>{addZero(clockTime.hr)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-24 h-24" />
+        <Colon />
         <TimeCard>{addZero(clockTime.min)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-24 h-24" />
+        <Colon />
         <TimeCard>{addZero(clockTime.sec)}</TimeCard>
       </div>
       <div className="flex justify-center items-center relative top-24">

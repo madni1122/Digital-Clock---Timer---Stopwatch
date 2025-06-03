@@ -1,7 +1,6 @@
-import React from "react";
 import TimeCard from "./TimeCard";
 import addZero from "../composables/addZero";
-import colon from "../assets/colon.svg";
+import Colon from "./Colon";
 
 const Clock = ({ clockTime, toggleFormat, is24Hour }) => {
   return (
@@ -16,9 +15,9 @@ const Clock = ({ clockTime, toggleFormat, is24Hour }) => {
       </div>
       <div className="relative w-full h-full flex px-28 justify-center items-center">
         <TimeCard>{addZero(clockTime.hr)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-24 h-24" />
+        <Colon />
         <TimeCard>{addZero(clockTime.min)}</TimeCard>
-        <img src={colon} alt="colon icon" className="w-24 h-24" />
+        <Colon />
         <TimeCard>{addZero(clockTime.sec)}</TimeCard>
         <p className="absolute left-[87%] text-4xl ml-12">{clockTime.ampm}</p>
       </div>

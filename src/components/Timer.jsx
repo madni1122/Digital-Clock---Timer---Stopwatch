@@ -4,6 +4,7 @@ import StartBtn from "./StartBtn";
 import ResetBtn from "./ResetBtn";
 
 import useTimer from "../hooks/useTimer";
+import Colon from "./Colon";
 
 const Timer = () => {
   const {
@@ -25,7 +26,7 @@ const Timer = () => {
           handleChange={handleChange}
           invalidError={invalidError.hr}
         />
-        <img src={colon} alt="colon icon" className="w-32 h-32" />
+        <Colon />
         <TimeCard
           status={timerStatus}
           section="timer"
@@ -34,7 +35,7 @@ const Timer = () => {
           handleChange={handleChange}
           invalidError={invalidError.min}
         />
-        <img src={colon} alt="colon icon" className="w-32 h-32" />{" "}
+        <Colon />
         <TimeCard
           status={timerStatus}
           section="timer"

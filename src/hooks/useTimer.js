@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import startTimer from "../composables/startTimer";
 import infoAlert from "../composables/swalAlert";
 import setInputValue from "../composables/setInputValue";
+import { themeContext } from "../contexts/ThemeContext";
 
 const useTimer = () => {
   const [timerStatus, setTimerStatus] = useState(false);
@@ -12,6 +13,8 @@ const useTimer = () => {
     min: "",
     sec: "",
   });
+  const [isDark] = useContext(themeContext);
+
   let timeRef = useRef(null);
 
   // WATCHER
@@ -37,7 +40,7 @@ const useTimer = () => {
   }, [timer, timerStatus]);
 
   useEffect(() => {
-    infoAlert("Switching to another tab will reset the timer.");
+    infoAlert("Switching to another tab will reset the timer.", isDark);
   }, []);
 
   // FUNCTION

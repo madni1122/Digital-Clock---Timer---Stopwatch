@@ -6,3 +6,47 @@ body{
   min-width: 100vw;
   min-height: 100vh;
 }
+@keyframes fade-text {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-text {
+  animation: fade-text 200ms ease-in-out;
+}
+
+.swal-popup {
+  border-radius: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.swal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.swal-text {
+  font-size: 1rem;
+}
+
+.swal-confirm {
+  background-color: #10b981 !important; /* emerald-500 */
+  color: white !important;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.swal-confirm:hover {
+  background-color: #059669 !important; /* emerald-600 */
+}
+
+
