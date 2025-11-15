@@ -33,18 +33,9 @@ const Clock = ({ clockTime, toggleFormat, is24Hour }) => {
 
         <TimeCard>{addZero(clockTime.min)}</TimeCard>
 
-        <Colon style="hidden sm:block" />
+        <Colon />
 
-        <div className="hidden sm:block">
-          <TimeCard>{addZero(clockTime.sec)}</TimeCard>
-        </div>
-        <div className="flex items-center mt-4">
-          <Colon style="sm:hidden block !w-6 !h-6" />
-
-          <div className="sm:hidden block">
-            <TimeCard style="!text-[5vw]">{addZero(clockTime.sec)}</TimeCard>
-          </div>
-        </div>
+        <TimeCard>{addZero(clockTime.sec)}</TimeCard>
 
         <p
           className="

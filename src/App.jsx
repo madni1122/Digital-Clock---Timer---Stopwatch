@@ -10,8 +10,10 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Header section={section} setSection={setSection} />
-      <Body section={section} />
+      <div className="dark:bg-[#1E1E2F] dark:text-gray-100 bg-[#F4F7FA] transition-colors duration-200">
+        <Header section={section} setSection={setSection} />
+        <Body section={section} />
+      </div>
     </ThemeProvider>
   );
 }

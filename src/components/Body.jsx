@@ -20,7 +20,7 @@ const Body = ({ section }) => {
   return (
     <>
       <section
-        className="min-w-[100vw] min-h-[100vh] flex flex-col justify-center transition-colors duration-200 dark:bg-[#1E1E2F] dark:text-gray-100 bg-[#F4F7FA] text-gray-800
+        className="min-w-[100vw] min-h-[100vh] sm:mt-20 mt-24   text-gray-800
        "
       >
         {section === "Clock" ? (

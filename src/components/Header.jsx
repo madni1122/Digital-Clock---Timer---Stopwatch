@@ -14,10 +14,10 @@ const Header = ({ section, setSection }) => {
   };
 
   return (
-    <div className="text-gray-800 dark:text-gray-100 relative transition-colors duration-200">
+    <div className="pt-4 text-gray-800 dark:text-gray-100 relative transition-colors duration-200">
       {/* ----- Navigation Bar ----- */}
       <header
-        className="absolute top-4 left-1/2 -translate-x-1/2 
+        className=" mx-auto
         w-[90%] max-w-[500px] sm:w-[400px] md:w-[480px]
         h-[38px] sm:h-[42px] md:h-[45px]
         bg-gradient-to-r from-green-200 via-green-100 to-green-200
