@@ -3,14 +3,14 @@ import colon from "../assets/colon.svg";
 import whiteColon from "../assets/whiteColon.svg";
 import { themeContext } from "../contexts/ThemeContext";
 
-const Colon = () => {
+const Colon = ({ style = "" }) => {
   let [isDark] = useContext(themeContext);
 
   return (
     <img
       src={isDark ? whiteColon : colon}
       alt="colon icon"
-      className="w-24 h-24"
+      className={`${style} lg:w-[104px] lg:h-[104px] md:w-20 md:h-20 w-14 h-14`}
     />
   );
 };
