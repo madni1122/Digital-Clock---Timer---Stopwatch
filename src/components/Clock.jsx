@@ -49,8 +49,7 @@ const Clock = ({ clockTime, toggleFormat, is24Hour }) => {
         <p
           className="
             absolute
-            bottom-[-40px] left-1/2 -translate-x-1/2 text-2xl font-semibold
-            sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 sm:left-auto sm:-translate-x-0 sm:right-4 sm:text-3xl
+            bottom-[-40px] left-1/2 -translate-x-1/2 text-2xl font-semibold sm:translate-y-[80%]
             md:text-4xl
           "
         >
